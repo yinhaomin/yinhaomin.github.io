@@ -7,8 +7,8 @@ keywords: 权限,权限系统,系统设计
 
 在`Filter`中
 
-    `@Override
-    publicvoiddoFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+`@Override
+publicvoiddoFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
@@ -38,12 +38,12 @@ keywords: 权限,权限系统,系统设计
                 return;
             }
         }
-    }`
+}`
  
 在`AOP`中
  
-  `@Around(value = "@annotation(casAuth)")
-    public Object checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable {
+`@Around(value = "@annotation(casAuth)")
+public Object checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable {
         // check user attribute
         List<Long> authList = AuthUtils.getCurrentAuths();
         if (authList != null) {
@@ -57,7 +57,7 @@ keywords: 权限,权限系统,系统设计
             BaseResponse response = new BaseResponse(UCConstant.NOT_LOGIN_STATUS, UCConstant.NOT_LOGIN_MSG);
             return response;
         }
-    }`
+}`
  
 `AuthUtils.java`
 
