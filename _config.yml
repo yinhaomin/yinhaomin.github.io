@@ -1,0 +1,15 @@
+﻿# Site settings
+title: Ray's Blog
+tagline: ''
+sidebar_image: /images/cover.jpg
+lang: 'zh-cmn-Hans'
+url: http://www.predatorray.me
+author: Wenhao Ji
+plus: https://plus.google.com/+%E5%AD%A3%E6%96%87%E6%98%8A/about
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+baseurl: # the subpath of your site, e.g. /blog/
+
+permalink:   /:categories/:title/
