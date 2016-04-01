@@ -41,9 +41,7 @@ namespace SHA512
             rtnlon8 = RingShift.AbsoluteBit(rtnlon8 , 0, 2);
             rtnlon = rtnlon1 | rtnlon2 | rtnlon3 | rtnlon4 | rtnlon5 | rtnlon6 | rtnlon7 | rtnlon8;
             return rtnlon;
-        }
-        
-        //将8个64bit数据合并为512位数据
+        }        //将8个64bit数据合并为512位数据
         //Tested
         public static string MergeResult(ulong[] H)
         {
@@ -115,8 +113,7 @@ namespace SHA512
     }
     //Tested
     public class RingShift
-    {
-        //校正64位数中由于内存原因空位不为0的情况
+    {        //校正64位数中由于内存原因空位不为0的情况
         //i=1时，左移，i=0时，右移
         //Tested
         public static ulong AbsoluteBit(ulong x, int n,int i)
