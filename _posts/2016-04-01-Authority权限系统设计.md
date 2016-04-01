@@ -5,6 +5,7 @@ comments: true
 keywords: 权限,权限系统,系统设计
 ---
 
+旨在设计一个权限管理系统。
 在Filter中
 
 ```
