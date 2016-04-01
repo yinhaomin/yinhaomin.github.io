@@ -167,4 +167,4 @@ CASStatusAOP. checkAuth中调用了
 ServletContext application =ServletContextEvent.getServletContext();
 context-param的值= application.getInitParameter("context-param的键");
  
-总的来说，web.xml的加载顺序是: <context-param>-> <listener> -> <filter> -> <servlet>
+总的来说，web.xml的加载顺序是: context-param-> listener -> filter -> servlet
