@@ -5,7 +5,16 @@ comments: true
 keywords: 权限,权限系统,系统设计,Authority System Design
 ---
 
-旨在设计一个权限管理系统。
+旨在设计一个权限管理系统,能够进行RBAC
+需对后台所有功能模块及功能进行职责权限划分，通过权限管理可配置不同权限给到相应人员。
+建立了5张表: role, authority, role_authority, user, user_role.
+状态验证
+-	对后台请求做filter，写入session，并请求验证当前用户是否是登录状态，并将用户基本信息写入session和context
+权限树为静态数据，前后端都需要保存，并根据权限对应信息展示ui限制后端行为。
+- 对每个操作行为接口，用注解方式表明对应的权限内容
+- 注解中根据该用户的登录信息获取权限，并和注解权限对比。
+
+
 在Filter中
 
 ```
