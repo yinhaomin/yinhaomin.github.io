@@ -6,7 +6,6 @@ keywords: 权限,权限系统,系统设计,Authority System Design
 ---
 
 旨在设计一个权限管理系统,能够进行RBAC。
-
 需对后台所有功能模块及功能进行职责权限划分，通过权限管理可配置不同权限给到相应人员。
 
 建立了5张表: role, authority, role_authority, user, user_role.
