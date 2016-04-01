@@ -5,6 +5,8 @@ comments: true
 keywords: SHA 512
 ---
 
+This is the codes of SHA 512 solution.
+
 ```
 ﻿using System;
 using System.Collections.Generic;
