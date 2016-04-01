@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 权限系统设计
+title: Authority System Design
 comments: true
-keywords: 权限,权限系统,系统设计
+keywords: 权限,权限系统,系统设计,Authority System Design
 ---
 
 旨在设计一个权限管理系统。
