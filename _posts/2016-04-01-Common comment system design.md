@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Comment系统的设计
+title: Common comment system design
 comments: true
 keywords: Comment,评论系统,系统设计
 ---
