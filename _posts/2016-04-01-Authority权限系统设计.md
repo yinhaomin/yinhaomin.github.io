@@ -43,6 +43,7 @@ keywords: 权限,权限系统,系统设计
 ```
 
 在AOP中
+
 ```
   @Around(value = "@annotation(casAuth)")
   public Object checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable {
@@ -60,8 +61,9 @@ keywords: 权限,权限系统,系统设计
             return response;
         }
   }
+```
 AuthUtils.java
-
+```
   publicstaticList<Long> getCurrentAuths() {
         HttpServletRequest httpServletRequest =
                 ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -71,9 +73,9 @@ AuthUtils.java
 ```
 在web.xml中配置
 ```
-<listener>
-<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-</listener>
+  <listener>
+  <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
 ```
 问题QA
 登陆账户是如何管理的，是不是每个UC账户都有登陆的权限?
