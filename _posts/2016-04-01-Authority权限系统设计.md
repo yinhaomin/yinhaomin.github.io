@@ -5,7 +5,7 @@ comments: true
 keywords: 权限,权限系统,系统设计
 ---
 
-在Filter中
+在`Filter`中
     @Override
     publicvoiddoFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
@@ -40,7 +40,7 @@ keywords: 权限,权限系统,系统设计
  
     }
  
-在AOP中
+在`AOP`中
  
     @Around(value = "@annotation(casAuth)")
     public Object checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable {
@@ -59,14 +59,14 @@ keywords: 权限,权限系统,系统设计
         }
     }
  
-AuthUtils.java
+`AuthUtils.java`
     publicstaticList<Long> getCurrentAuths() {
         HttpServletRequest httpServletRequest =
                 ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         List<Long> auths = (List<Long>) httpServletRequest.getAttribute(UCConstant.UC_USER_AUTH_ATTRIBUTE_KEY);
         return auths;
 }
-在web.xml中配置
+在`web.xml`中配置
 <listener>
 <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 </listener>
@@ -85,11 +85,11 @@ AuthUtils.java
  
 疑问
 看到了从
-CASStatusAOP.checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable
+`CASStatusAOP.checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable`
 里面使用了前端传过来的权限的表做用户对一个Action是否有权限的判断，感觉这个表可以被前端更改的，是不是使用新读取出来的表比较合理些。
-现在是在UCFilter里面加上了authlist，不是前端传输的
+现在是在`UCFilter`里面加上了`authlist`，不是前端传输的
  
-com.baidu.hui.web.filter.UCFilter过滤器过了权限
+`com.baidu.hui.web.filter.UCFilter`过滤器过了权限
 调用了UC的sdk实现是否登陆的判断
  
 权限树在数据库中按照
@@ -121,7 +121,7 @@ API role/add验证了Id和user name
 帮助信息
 Web.xml的加载过程
 此段试图说明在
-CASStatusAOP. checkAuth中调用了
+`CASStatusAOP. checkAuth`中调用了
 List<Long> authList = AuthUtils.getCurrentAuths();
     publicstaticList<Long> getCurrentAuths() {
         HttpServletRequest httpServletRequest =
@@ -129,7 +129,7 @@ List<Long> authList = AuthUtils.getCurrentAuths();
         List<Long> auths = (List<Long>) httpServletRequest.getAttribute(UCConstant.UC_USER_AUTH_ATTRIBUTE_KEY);
         return auths;
 }
-这段代码中的RequestContextHolder的使用
+这段代码中的`RequestContextHolder`的使用
  
 启动Web项目的时候，容器包括(JBoss、Tomcat等)首先会读取项目web.xml配置文件的配置，当这一步没问题时，程序才启动起来.
 1. 启动WEB项目时，容器首先会去它的配置文件web.xml读取两个节点:
