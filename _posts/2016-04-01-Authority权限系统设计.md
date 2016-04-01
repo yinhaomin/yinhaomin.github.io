@@ -6,6 +6,7 @@ keywords: 权限,权限系统,系统设计
 ---
 
 在`Filter`中
+
     `@Override
     publicvoiddoFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
@@ -41,7 +42,7 @@ keywords: 权限,权限系统,系统设计
  
 在`AOP`中
  
-    `@Around(value = "@annotation(casAuth)")
+  `@Around(value = "@annotation(casAuth)")
     public Object checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable {
         // check user attribute
         List<Long> authList = AuthUtils.getCurrentAuths();
@@ -59,12 +60,14 @@ keywords: 权限,权限系统,系统设计
     }`
  
 `AuthUtils.java`
-    `publicstaticList<Long> getCurrentAuths() {
+
+`publicstaticList<Long> getCurrentAuths() {
         HttpServletRequest httpServletRequest =
                 ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         List<Long> auths = (List<Long>) httpServletRequest.getAttribute(UCConstant.UC_USER_AUTH_ATTRIBUTE_KEY);
         return auths;
 }`
+
 在`web.xml`中配置
 <listener>
 <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
