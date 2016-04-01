@@ -6,8 +6,8 @@ keywords: 权限,权限系统,系统设计
 ---
 
 在Filter中
-`
-  @Override
+
+  `@Override
   publicvoiddoFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
@@ -38,11 +38,10 @@ keywords: 权限,权限系统,系统设计
                 return;
             }
         }
-    }
-`
+    }`
 在AOP中
-`
-@Around(value = "@annotation(casAuth)")
+
+`@Around(value = "@annotation(casAuth)")
 public Object checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws Throwable {
         // check user attribute
         List<Long> authList = AuthUtils.getCurrentAuths();
@@ -57,17 +56,15 @@ public Object checkAuth(ProceedingJoinPoint joinPoint, CASAuth casAuth) throws T
             BaseResponse response = new BaseResponse(UCConstant.NOT_LOGIN_STATUS, UCConstant.NOT_LOGIN_MSG);
             return response;
         }
-}
-`
+}`
 AuthUtils.java
-`
-publicstaticList<Long> getCurrentAuths() {
+
+`publicstaticList<Long> getCurrentAuths() {
         HttpServletRequest httpServletRequest =
                 ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         List<Long> auths = (List<Long>) httpServletRequest.getAttribute(UCConstant.UC_USER_AUTH_ATTRIBUTE_KEY);
         return auths;
-}
-`
+}`
 
 在web.xml中配置
 <listener>
@@ -125,15 +122,14 @@ API role/add验证了Id和user name
 Web.xml的加载过程
 此段试图说明在
 CASStatusAOP. checkAuth中调用了
-`
-List<Long> authList = AuthUtils.getCurrentAuths();
+
+`List<Long> authList = AuthUtils.getCurrentAuths();
     publicstaticList<Long> getCurrentAuths() {
         HttpServletRequest httpServletRequest =
                 ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         List<Long> auths = (List<Long>) httpServletRequest.getAttribute(UCConstant.UC_USER_AUTH_ATTRIBUTE_KEY);
         return auths;
-}
-`
+}`
 
 这段代码中的RequestContextHolder的使用
  
