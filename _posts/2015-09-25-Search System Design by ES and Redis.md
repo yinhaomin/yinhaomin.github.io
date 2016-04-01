@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 检索系统设计
+title: Search System Design by ES and Redis
 comments: true
-keywords: 检索系统,设计
+keywords: 检索系统,设计,Search System Design by ES and Redis
 ---
 
 需求
