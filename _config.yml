@@ -1,11 +1,11 @@
 # Site settings
 title: Yin Haomin's Blog
 tagline: ''
-sidebar_image: /images/cover.jpg
+sidebar_image: /images/checker.jpg
 lang: 'zh-cmn-Hans'
-url: http://www.predatorray.me
+url: http://www.yinhaomin.com/
 author: Wenhao Ji
-plus: https://plus.google.com/+%E5%AD%A3%E6%96%87%E6%98%8A/about
+plus: https://www.facebook.com/dave.yi.3
 
 # Build settings
 markdown: kramdown
