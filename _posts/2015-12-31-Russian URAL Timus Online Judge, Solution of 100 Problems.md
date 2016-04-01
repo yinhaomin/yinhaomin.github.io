@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 俄罗斯乌拉尔大学的OJ 100题解答
+title: Russian URAL Timus Online Judge, Solution of 100 Problems
 comments: true
 keywords: 俄罗斯乌拉尔大学,Timus OJ,OJ
 ---
