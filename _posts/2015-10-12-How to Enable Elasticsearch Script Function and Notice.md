@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elasticsearch的脚本功能开启和注意事项
+title: How to Enable Elasticsearch Script Function and Notice
 comments: true
 keywords: Elasticsearch,脚本功能开启,注意事项
 ---
