@@ -63,6 +63,7 @@ keywords: 权限,权限系统,系统设计
   }
 ```
 AuthUtils.java
+
 ```
   publicstaticList<Long> getCurrentAuths() {
         HttpServletRequest httpServletRequest =
@@ -71,11 +72,11 @@ AuthUtils.java
         return auths;
   }
 ```
-在web.xml中配置
 
-  <listener>
-  <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener>
+在web.xml中配置
+<listener>
+<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+</listener>
 
 问题QA
 登陆账户是如何管理的，是不是每个UC账户都有登陆的权限?
@@ -128,6 +129,7 @@ API role/add验证了Id和user name
 Web.xml的加载过程
 此段试图说明在
 CASStatusAOP. checkAuth中调用了
+
 ```
   List<Long> authList = AuthUtils.getCurrentAuths();
     publicstaticList<Long> getCurrentAuths() {
@@ -137,6 +139,7 @@ CASStatusAOP. checkAuth中调用了
         return auths;
   }
 ```
+
 这段代码中的RequestContextHolder的使用
  
 启动Web项目的时候，容器包括(JBoss、Tomcat等)首先会读取项目web.xml配置文件的配置，当这一步没问题时，程序才启动起来.
