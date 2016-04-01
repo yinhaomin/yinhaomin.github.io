@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -45,26 +44,25 @@
         <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a
                 href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
     </section>
-	
-	    ---
-            layout: default
-            alternates:
-            - type: application/atom+xml
-            title: Ray's Blog
-            href: feed.xml
-            ---
-        <ul class="posts">
-            {% for post in site.posts %}
-            <li>
-                <h2>
-                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                    <span class="meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
-                </h2>
-                {{ post.excerpt }}
-            </li>
-            {% endfor %}
-        </ul>
-        </ul>
+---
+layout: default
+alternates:
+- type: application/atom+xml
+title: Ray's Blog
+href: feed.xml
+---
+<ul class="posts">
+{% for post in site.posts %}
+<li>
+<h2>
+<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+<span class="meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
+</h2>
+{{ post.excerpt }}
+</li>
+{% endfor %}
+</ul>
+</ul>
 	
 </div>
 <footer>
@@ -75,23 +73,4 @@
 
 </body>
 </html>
-=======
----
-layout: default
-alternates:
-  - type: application/atom+xml
-    title: Yin Haomin's Blog
-    href: feed.xml
----
-<ul class="posts">
-  {% for post in site.posts %}
-    <li>
-      <h2>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-        <span class="meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
-      </h2>
-      {{ post.excerpt }}
-    </li>
-  {% endfor %}
-</ul>
->>>>>>> origin/master
+
