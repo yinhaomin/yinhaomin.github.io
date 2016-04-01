@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Yinhaomin Blog - 专注于互联网搜索技术/社区平台/爬虫抓取/数据挖掘</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header class="without-description">
+        <h1>Welcome to yinhaomin.com</h1>
+
+        <p></p>
+
+        <p class="view"><a href="https://github.com/yinhaomin">View the Project on GitHub
+            <small>yinhaomin</small>
+        </a></p>
+        <ul>
+            <li class="single"><a href="https://github.com/yinhaomin/yinhaomin.github.io">View On
+                <strong>GitHub</strong></a></li>
+        </ul>
+    </header>
+    <section>
+        <h3>
+            <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span
+                    aria-hidden="true" class="octicon octicon-link"></span></a>This is a homepage of software engineer Yin Haomin.</h3>
+
+
+
+
+        <h3>
+            <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span
+                    aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+        <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a
+                href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+    </section>
+	
+	    ---
+            layout: default
+            alternates:
+            - type: application/atom+xml
+            title: Ray's Blog
+            href: feed.xml
+            ---
+        <ul class="posts">
+            {% for post in site.posts %}
+            <li>
+                <h2>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    <span class="meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
+                </h2>
+                {{ post.excerpt }}
+            </li>
+            {% endfor %}
+        </ul>
+        </ul>
+	
+</div>
+<footer>
+    <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+</footer>
+<!--[if !IE]>
+<script>fixScale(document);</script><![endif]-->
+
+</body>
+</html>
