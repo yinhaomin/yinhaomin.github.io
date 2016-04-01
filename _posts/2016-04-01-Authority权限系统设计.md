@@ -72,11 +72,11 @@ AuthUtils.java
   }
 ```
 在web.xml中配置
-```
+
   <listener>
   <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
-```
+
 问题QA
 登陆账户是如何管理的，是不是每个UC账户都有登陆的权限?
 是的，新的账户没有权限的话，登陆进去后停在一张啥都没有的页面
