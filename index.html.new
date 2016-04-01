@@ -1,0 +1,18 @@
+﻿---
+layout: default
+alternates:
+  - type: application/atom+xml
+    title: Yin Haomin's Blog
+    href: feed.xml
+---
+<ul class="posts">
+  {% for post in site.posts %}
+    <li>
+      <h2>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        <span class="meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
+      </h2>
+      {{ post.excerpt }}
+    </li>
+  {% endfor %}
+</ul>
