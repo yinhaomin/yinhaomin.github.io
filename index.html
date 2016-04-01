@@ -34,7 +34,27 @@
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span
                     aria-hidden="true" class="octicon octicon-link"></span></a>This is a homepage of software engineer Yin Haomin.</h3>
 
-        <p></p>
+        <p>
+            ---
+            layout: default
+            alternates:
+            - type: application/atom+xml
+            title: Ray's Blog
+            href: feed.xml
+            ---
+        <ul class="posts">
+            {% for post in site.posts %}
+            <li>
+                <h2>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    <span class="meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
+                </h2>
+                {{ post.excerpt }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        </p>
 
 
         <h3>
