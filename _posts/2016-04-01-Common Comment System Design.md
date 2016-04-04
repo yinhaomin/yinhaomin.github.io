@@ -37,7 +37,9 @@ keywords: Comment,评论系统,系统设计
 ### <a id="related-service"></a>2.4 问题和思路
 
 #### <a id="related-service"></a>2.4.1 数据写入服务
+
 [数据写入示意图]
+
 ![gras](/images/postsImages/1-评论写入流程.png)
 
 2.4.1.1 数据过滤服务
