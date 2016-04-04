@@ -37,7 +37,8 @@ keywords: Comment,评论系统,系统设计
 ### <a id="related-service"></a>2.4 问题和思路
 
 #### <a id="related-service"></a>2.4.1 数据写入服务
-[数据写入示意图](https://github.com/yinhaomin/yinhaomin.github.io/blob/master/postsImages/1-%E8%AF%84%E8%AE%BA%E5%86%99%E5%85%A5%E6%B5%81%E7%A8%8B.png)
+[数据写入示意图]
+![gras](postsImages/1-评论写入流程.png)
 
 2.4.1.1 数据过滤服务
 判断数据的合法性，验证数据是否有安全性的问题，验证数据是否有各种XSS，DB攻击风险和是否为违禁词。
