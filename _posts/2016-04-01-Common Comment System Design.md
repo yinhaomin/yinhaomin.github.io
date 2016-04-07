@@ -5,7 +5,8 @@ comments: true
 keywords: Comment,评论系统,系统设计
 ---
 
-这是一个大规模大并发的评论系统的数据
+通用的comment服务，为了解决大规模并发和大规模数据量的评论的写入和读取，用户的读取服务。
+能够支持多个APP的读取和写入，以及数据的管理。
 
 ## <a id="design-aim"></a>1 设计的目标
 
@@ -37,8 +38,10 @@ keywords: Comment,评论系统,系统设计
 ### <a id="related-service"></a>2.4 问题和思路
 
 #### <a id="related-service"></a>2.4.1 数据写入服务
+
 [数据写入示意图]
-![gras](/postsImages/1-评论写入流程.png)
+
+![gras](/images/postsImages/1-评论写入流程.png)
 
 2.4.1.1 数据过滤服务
 
