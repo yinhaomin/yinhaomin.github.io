@@ -41,7 +41,7 @@ alternates:
   {% else %}
     <span class="previous" style="display:inline">Previous</span>
   {% endif %}
-  <span class="page_number " style="display:inline">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  <span class="page_number " style="display:inline;color:blue"><Page: {{ paginator.page }} of {{ paginator.total_pages }}></span>
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path }}" class="next" style="display:inline">Next</a>
   {% else %}
