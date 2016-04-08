@@ -14,5 +14,5 @@ baseurl: # the subpath of your site, e.g. /blog/
 
 permalink:   /:categories/:title/
 
-paginate: 2 //the number of post per page
+paginate: 2
 
