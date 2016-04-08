@@ -20,6 +20,7 @@ alternates:
 </ul>
 -->
 <!-- This loops through the paginated posts -->
+<ul class="posts">
 {% for post in paginator.posts %}
   <li>
     <h2>
@@ -31,7 +32,7 @@ alternates:
   </div>
   </li>
 {% endfor %}
-
+</ul>
 <!-- Pagination links -->
 <div class="pagination">
   {% if paginator.previous_page %}
