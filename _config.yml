@@ -13,7 +13,5 @@ highlighter: rouge
 baseurl: # the subpath of your site, e.g. /blog/
 
 permalink:   /:categories/:title/
-
-paginate: 2
-
+paginate: 8
 paginate_path: "/page:num/"
