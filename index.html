@@ -5,7 +5,18 @@ alternates:
     title: Yin Haomin's Blog
     href: feed.xml
 ---
-<ul class="posts">
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+<!--  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <p class="author">
+    <span class="date">{{ post.date }}</span>
+  </p>
+  <div class="content">
+    {{ post.content }}
+  </div> -->
+  
+  <ul class="posts">
   {% for post in site.posts %}
     <li>
       <h2>
@@ -17,15 +28,6 @@ alternates:
   {% endfor %}
 </ul>
 
-<!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
-  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-  <p class="author">
-    <span class="date">{{ post.date }}</span>
-  </p>
-  <div class="content">
-    {{ post.content }}
-  </div>
 {% endfor %}
 
 <!-- Pagination links -->
