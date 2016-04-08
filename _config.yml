@@ -16,3 +16,4 @@ permalink:   /:categories/:title/
 
 paginate: 2
 
+paginate_path: "/page:num/"
