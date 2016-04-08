@@ -17,32 +17,28 @@ alternates:
   {% endfor %}
 </ul>
 
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <p class="author">
+    <span class="date">{{ post.date }}</span>
+  </p>
+  <div class="content">
+    {{ post.content }}
+  </div>
+{% endfor %}
+
 <!-- Pagination links -->
-<div id="pagination">
-  <div class="pagenavi">
-    <span class="page_number">第{{paginator.page}}页/共{{paginator.total_pages}}页</span>
-  <a href="/">首页</a>
+<div class="pagination">
   {% if paginator.previous_page %}
-    {% if paginator.previous_page == 1 %}
-    <a href="/" class="current"><<前页</a>
-    {% else %}
-    <a href="/page{{paginator.previous_page}}/"><<前页</a>
-    {% endif %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
   {% else %}
-    <span><<前页</span>
+    <span class="previous">Previous</span>
   {% endif %}
-{% for count in (2..paginator.total_pages) limit:6 %}
-      {% if count == paginator.page %}
-      <span class="current-page">{{count}}</span>
-      {% else %}
-      <a href="/page{{count}}/">{{count}}</a>
-      {% endif %}
-    {% endfor %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
-    <a href="/page{{paginator.next_page}}/">后页>></a>
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
   {% else %}
-    <span>后页>></span>
+    <span class="next ">Next</span>
   {% endif %}
-  <a href="/page{{paginator.total_pages}}/">末页</a>
-</div>
 </div>
