@@ -35,13 +35,13 @@ alternates:
 </ul>
 <br>
 <!-- Pagination links -->
-<div class="pagination"  align="center" style="font-family:verdana">
+<div class="pagination"  align="center" style="font-weight:bold;font-family:verdana">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path }}" class="previous" style="display:inline">Previous</a>
   {% else %}
     <span class="previous" style="display:inline">Previous</span>
   {% endif %}
-  <span class="page_number " style="display:inline;color:blue">&lt;Page: {{ paginator.page }} of {{ paginator.total_pages }}&gt;</span>
+  <span class="page_number " style="display:inline">&lt;Page: {{ paginator.page }} of {{ paginator.total_pages }}&gt;</span>
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path }}" class="next" style="display:inline">Next</a>
   {% else %}
