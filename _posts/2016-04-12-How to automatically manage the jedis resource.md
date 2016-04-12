@@ -5,7 +5,7 @@ comments: true
 keywords: jedis resource manage
 ---
 
-问题的背景是这样的，我们想将redis资源的生成和return剥离我们的业务代码。主要的解决方案如下所示，我们使用了AOP+Annotation，回调函数了两种方式。我们也可以封装定制一个jedis(具体如何实现待研究)。另外还有Java 7 已经支持"Add Closeable to JedisPool (support for TryWithResources of java 7)"[link](https://github.com/xetorthio/jedis/releases/tag/jedis-2.6.0)。代码如下:
+问题的背景是这样的，我们想将redis资源的生成和return剥离我们的业务代码。主要的解决方案如下所示，我们使用了AOP+Annotation，回调函数了两种方式。我们也可以封装定制一个jedis(具体如何实现待研究)。另外还有Java 7 已经支持 [Add Closeable to JedisPool (support for TryWithResources of java 7)](https://github.com/xetorthio/jedis/releases/tag/jedis-2.6.0)。代码如下:
 
 ```
 JedisResourcePool jedisPool = new RoundRobinJedisPool("zkserver:2181", 30000, "/zk/codis/db_xxx/proxy", new JedisPoolConfig());
