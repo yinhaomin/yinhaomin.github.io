@@ -2,6 +2,7 @@
 layout: post
 title: Where in slow query research and solution
 comments: true
+author: "Yin Haomin"
 keywords: Where in慢查询,解决方式
 ---
 
