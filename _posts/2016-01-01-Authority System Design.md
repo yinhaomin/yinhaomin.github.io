@@ -2,6 +2,7 @@
 layout: post
 title: Authority System Design
 comments: true
+author: "Yin Haomin"
 keywords: 权限,权限系统,系统设计,Authority System Design
 ---
 
