@@ -2,6 +2,7 @@
 layout: post
 title: How to automatically manage the jedis resource
 comments: true
+author: "Yin Haomin"
 keywords: jedis resource manage
 ---
 
