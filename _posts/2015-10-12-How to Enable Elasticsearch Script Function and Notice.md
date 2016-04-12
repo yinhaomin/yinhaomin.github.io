@@ -2,6 +2,7 @@
 layout: post
 title: How to Enable Elasticsearch Script Function and Notice
 comments: true
+author: "Yin Haomin"
 keywords: Elasticsearch,脚本功能开启,注意事项
 ---
 Elasticsearch支持更新可以通过使用简单的脚本来进行。但是实际操作中会遇到问题: org.elasticsearch.script.ScriptException: scripts of type [inline], operation [update] and lang [groovy] are disabled. 以下是解决脚本功能未打开的配置: 
