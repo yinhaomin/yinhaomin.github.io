@@ -5,7 +5,9 @@ comments: true
 keywords: SHA 512
 ---
 
-This is the codes of SHA 512 solution.
+这是我大学毕业那年写的SHA 512的一个C#的实现，我看到我的github上有人star了这个解决方案，我猜有人打算抄我的代码作为课程设计或者毕业设计了。:)
+SHA (Secure Hash Algorithm，译作安全散列算法) 是美国国家安全局 (NSA) 设计，美国国家标准与技术研究院 (NIST) 发布的一系列密码散列函数。
+SHA-512 (这些有时候也被称做 SHA-2)。
 
 ```
 ﻿using System;
