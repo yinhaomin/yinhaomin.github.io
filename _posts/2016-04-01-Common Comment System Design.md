@@ -2,6 +2,7 @@
 layout: post
 title: Common Comment System Design
 comments: true
+author: "Yin Haomin"
 keywords: Comment,评论系统,系统设计
 ---
 
