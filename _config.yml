@@ -1,5 +1,7 @@
 # Site settings
 title: Yin Haomin's Blog
+SEOTitle: 殷浩民的博客 | Yin Haomin's Blog
+header-img: img/home-bg.jpg
 tagline: ''
 sidebar_image: /images/checker.jpg
 lang: 'zh-cmn-Hans'
@@ -15,3 +17,12 @@ baseurl: # the subpath of your site, e.g. /blog/
 permalink:   /:categories/:title/
 paginate: 8
 paginate_path: "/page:num/"
+
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
