@@ -2,6 +2,7 @@
 layout: post
 title: Russian URAL Timus Online Judge, Solution of 100 Problems
 comments: true
+author: "Yin Haomin"
 keywords: 俄罗斯乌拉尔大学,Timus OJ,OJ
 ---
 
