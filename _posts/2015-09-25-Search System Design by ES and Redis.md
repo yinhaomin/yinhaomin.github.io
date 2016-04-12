@@ -2,6 +2,7 @@
 layout: post
 title: Search System Design by ES and Redis
 comments: true
+author: "Yin Haomin"
 keywords: 检索系统,设计,Search System Design by ES and Redis
 ---
 
