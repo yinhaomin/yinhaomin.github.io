@@ -2,6 +2,7 @@
 layout: post
 title: A solution of SHA 512
 comments: true
+author: "Yin Haomin"
 keywords: SHA 512
 ---
 
