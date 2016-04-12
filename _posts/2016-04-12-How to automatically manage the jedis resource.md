@@ -5,6 +5,19 @@ comments: true
 keywords: jedis resource manage
 ---
 
+问题的背景是这样的，我们想将redis资源的生成和return剥离我们的业务代码。主要的解决方案如下所示，我们使用了AOP+Annotation，回调函数了两种方式。我们也可以封装定制一个jedis(具体如何实现待研究)。另外还有Java 7 已经支持"Add Closeable to JedisPool (support for TryWithResources of java 7)"[link](https://github.com/xetorthio/jedis/releases/tag/jedis-2.6.0)。代码如下:
+
+```
+JedisResourcePool jedisPool = new RoundRobinJedisPool("zkserver:2181", 30000, "/zk/codis/db_xxx/proxy", new JedisPoolConfig());
+   try (Jedis jedis = jedisPool.getResource()) {
+   jedis.set("foo", "bar");
+   String value = jedis.get("foo");
+}
+
+```
+
+### 以下为我们的现状
+
 ```
         Jedis jedis = null;
         try {
@@ -36,7 +49,8 @@ keywords: jedis resource manage
 ```
 
 如上图为了将redis的代码和和业务代码剥离开来，使用如下的方式:
-第一种:使用AOP和Annotation
+
+### 第一种:使用AOP和Annotation
 
 ```
     @Autowired
@@ -97,7 +111,7 @@ keywords: jedis resource manage
     }
 ```
 
-第二种: 使用回调函数
+### 第二种: 使用回调函数
 
 ```
 @Component
