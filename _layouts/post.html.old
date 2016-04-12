@@ -1,0 +1,50 @@
+---
+layout: default
+---
+  <article>
+    <div class="title">
+      <h1>{{ page.title }}</h1>
+      <div class="meta">
+        发布于 {{ page.date | date: "%Y年%m月%d日" }}
+      </div>
+      <div class="meta">
+        {% if page.categories and page.categories.size > 0 %}
+        分类 {{ page.categories }}
+        {% endif %}
+      </div>
+    </div>
+
+    {{ content }}
+
+    <p class="pagination">
+      {% if page.previous.url %}
+      <a class="prev" href="{{ site.baseurl }}{{ page.previous.url }}">
+        上一篇：{{ page.previous.title }}
+      </a>
+      {% endif %}
+      {% if page.next.url %}
+      <a class="next" href="{{ site.baseurl }}{{ page.next.url }}">
+        下一篇：{{ page.next.title }}
+      </a>
+      {% endif %}
+    </p>
+    
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    {% if page.comments %}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'yinhaomin';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    {% endif %}
+  </article>
+
