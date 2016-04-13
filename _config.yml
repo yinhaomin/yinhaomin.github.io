@@ -37,3 +37,11 @@ ba_track_id: c54eadfcc0d65d8b19556ca80774c775
 # Google Analytics
 ga_track_id: 'UA-76384105-1'            # Format: UA-xxxxxx-xx
 ga_domain: yinhaomin.com
+
+# SNS settings
+RSS: false
+weibo_username:     SheamusKick
+zhihu_username:     David Yin
+github_username:    yinhaomin
+#twitter_username:  DavidYiSH
+facebook_username:  David Yin
