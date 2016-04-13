@@ -3,7 +3,7 @@ layout: post
 title: Manage transaction in the application layer by self created transaction manager
 comments: false
 author: "Yin Haomin"
-date: 2016-04-13 12:00:00
+date: 2016-04-13 01:00:00
 tags:
     - Spring
     - Transaction
