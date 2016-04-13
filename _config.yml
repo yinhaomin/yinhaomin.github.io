@@ -27,6 +27,6 @@ anchorjs: true                          # if you want to customize anchor. check
 # Duoshuo settings
 duoshuo_username: yinhaomin
 # Share component is depend on Comment so we can NOT use share only.
-# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 
