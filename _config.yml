@@ -45,3 +45,13 @@ zhihu_username:     david-yin-zhihu
 github_username:    yinhaomin
 #twitter_username:  DavidYiSH
 facebook_username:  dave.yi.3
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "写写代码，做做设计，看看产品。世界那么大，我想去看看。"
+sidebar-avatar: /img/search.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
