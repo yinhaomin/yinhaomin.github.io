@@ -3,7 +3,11 @@ layout: post
 title: A solution of SHA 512
 comments: true
 author: "Yin Haomin"
-keywords: SHA 512
+tags:
+    - SHA 512
+    - SHA
+    - Algorithm
+    - Ecupl
 ---
 
 这是我大学毕业那年写的SHA 512的一个C#的实现，我看到我的github上有人star了这个解决方案，我猜有人打算抄我的代码作为课程设计或者毕业设计了。:)
