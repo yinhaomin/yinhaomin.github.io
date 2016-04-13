@@ -8,6 +8,8 @@ lang: 'zh-cmn-Hans'
 url: http://www.yinhaomin.com/
 author: Yin Haomin
 plus: https://www.facebook.com/dave.yi.3
+description: "关于服务器端开发和设计 | 数据的检索 | 数据抓取 | 殷浩民 Yin Haomin| Software Engineer"
+keyword: "关于服务器端开发和设计 | 数据的检索 | 数据抓取 | 殷浩民 Yin Haomin| Software Engineer"
 
 # Build settings
 markdown: kramdown
