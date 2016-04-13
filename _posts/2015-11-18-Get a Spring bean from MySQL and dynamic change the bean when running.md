@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Get a Spring bean from MysSQL and dynamic change the bean when running
+title: Get a Spring bean from MySQL and dynamic change the bean when running
 author: "Yin Haomin"
 date: 2015-11-18 12:00:00
 tags:
