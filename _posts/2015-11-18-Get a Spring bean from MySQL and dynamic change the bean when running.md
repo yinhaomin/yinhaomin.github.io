@@ -10,8 +10,103 @@ tags:
     - Bean
 ---
 
-占坑，如何实现从MuSQL中获取配置生成bean并动态的更改Bean
+如何实现从MuSQL中获取配置生成bean并动态的更改Bean?大体的步骤如下:
 
+#### 1. 从DB中生成相应的Bean
+
+将初始化propertyPlaceholder
+
+```
+	<bean id="propertyConfigurer23"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="23" /> 
+		<property name="properties" ref="dataBaseProperties" />
+	</bean>
+
+	<bean id="dataBaseProperties"
+		class="com.baidu.hui.biz.database.properties.DatabaseProperties">
+		<constructor-arg type="com.baidu.hui.dao.dao.CrawlerTemplateDAO"
+			ref="crawlerTemplateDAO" />
+		<constructor-arg type="com.baidu.hui.biz.utils.SpringContextUtil" ref="SpringContextUtil" />
+	</bean>
+```
+
+使用初始化后的propertyPlaceholder设置一个bean
+
+```
+	<bean id="yihaodianMobileTemplate" class="com.baidu.hui.biz.vo.UrlTemplate"
+		lazy-init="true">
+		<property name="id">
+			<value type="java.lang.Long">${yihaodianMobileTemplate_template_id}</value>
+		</property>
+		<property name="ucId">
+			<value type="java.lang.Long">${yihaodianMobileTemplate_uc_id}</value>
+		</property>
+		<property name="domain">
+			<value>${yihaodianMobileTemplate_domain}</value>
+		</property>
+		<property name="merchant">
+			<value>${yihaodianMobileTemplate_merchant}</value>
+		</property>
+		<property name="secendLevelDomain">
+			<value>${yihaodianMobileTemplate_second_level_domain}</value>
+		</property>
+		<property name="type">
+			<value type="java.lang.Integer">${yihaodianMobileTemplate_crawl_type}</value>
+		</property>
+		<property name="outIdPatten">
+			<value type="java.lang.String">${yihaodianMobileTemplate_out_id_patten}</value>
+		</property>
+		<property name="pattenIndex">
+			<value type="java.lang.Integer">${yihaodianMobileTemplate_pattern_index}</value>
+		</property>
+		<property name="htmlCharset">
+			<value>${yihaodianMobileTemplate_html_charset}</value>
+		</property>
+		<property name="updateTime">
+			<value type="java.lang.Long">${yihaodianMobileTemplate_updatetime}</value>
+		</property>
+		<property name="xpaths">
+			<map key-type="com.baidu.hui.biz.constance.HtmlAttribute">
+				<entry key="TITLE">
+					<value>${yihaodianMobileTemplate_title}</value>
+				</entry>
+				<entry key="PRICE">
+					<value>${yihaodianMobileTemplate_price}</value>
+				</entry>
+				<entry key="IMAGES">
+					<value>${yihaodianMobileTemplate_images}</value>
+				</entry>
+				<entry key="VALUE">
+					<value>${yihaodianMobileTemplate_value}</value>
+				</entry>
+				<entry key="BRAND">
+					<value>${yihaodianMobileTemplate_bean_name}</value>
+				</entry>
+				<entry key="STOCK">
+					<value>${yihaodianMobileTemplate_bean_name}</value>
+				</entry>
+				<entry key="CATEGORY">
+					<value>${yihaodianMobileTemplate_bean_name}</value>
+				</entry>
+				<entry key="SUBCATEGORY">
+					<value>${yihaodianMobileTemplate_bean_name}</value>
+				</entry>
+				<entry key="THIRDCATEGORY">
+					<value>${yihaodianMobileTemplate_bean_name}</value>
+				</entry>
+				<entry key="FOURTHCATEGORY">
+					<value>${yihaodianMobileTemplate_bean_name}</value>
+				</entry>
+				<entry key="DESCRIPTION">
+					<value>${yihaodianMobileTemplate_bean_name}</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+```
+
+#### 2. 更新容器内的template bean的属性
 ```
 @Log4j
 @Component
