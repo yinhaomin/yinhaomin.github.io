@@ -10,7 +10,9 @@ tags:
     - Bean
 ---
 
-如何实现从MuSQL中获取配置生成bean并动态的更改Bean?大体的步骤如下:
+如何实现从MySQL中获取配置生成bean并动态的更改Bean?
+
+大体的步骤如下:
 
 #### 1. 从DB中生成相应的Bean
 
