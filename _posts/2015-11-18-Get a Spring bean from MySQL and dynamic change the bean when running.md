@@ -106,7 +106,7 @@ tags:
 	</bean>
 ```
 
-#### 2. 更新容器内的template bean的属性
+#### 2. 更新容器内的template bean的属性，也用于初始化Bean的时候，从DB中读取内容生成Bean
 ```
 @Log4j
 @Component
@@ -284,6 +284,10 @@ public class ReloadTemplateBeanManager implements ApplicationContextAware {
 }
 
 ```
+
+这个更新Bean的Manager，设置一个DB中Bean的配置更新的时间，程序Hold的时间晚于这个时间时，就会重新loadbean。
+
+这个方式可以用Spring的定时刷新的机制替换的。
 
 ```
 @Log4j
