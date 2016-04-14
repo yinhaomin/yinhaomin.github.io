@@ -63,5 +63,9 @@ friends: [
     },{
         title: "Hux Blog",
         href: "http://huangxuan.me"
+    },{
+        title: "Knight's Blog",
+        href: "http://www.liaoqiqi.com/"
     }
+    
 ]
