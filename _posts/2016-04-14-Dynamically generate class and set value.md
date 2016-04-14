@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dynamically generate bean and set value
+title: Dynamically generate class and set value
 comments: true
 author: "Yin Haomin"
 keywords: Bean, Dynamic class
