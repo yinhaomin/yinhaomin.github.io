@@ -66,6 +66,8 @@ friends: [
     },{
         title: "Knight's Blog",
         href: "http://www.liaoqiqi.com/"
+    },{
+        title: "百度统计",
+        href: "http://tongji.baidu.com"
     }
-    
 ]
