@@ -69,5 +69,8 @@ friends: [
     },{
         title: "百度统计",
         href: "http://tongji.baidu.com"
+    },{
+        title: "百度惠",
+        href: "http://hui.baidu.com"
     }
 ]
