@@ -72,5 +72,8 @@ friends: [
     },{
         title: "百度惠",
         href: "http://hui.baidu.com"
+    },{
+        title: "百度",
+        href: "http://www.baidu.com"
     }
 ]
