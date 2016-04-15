@@ -64,6 +64,9 @@ friends: [
         title: "Hux Blog",
         href: "http://huangxuan.me"
     },{
+        title: "百度",
+        href: "http://www.baidu.com"
+    },{
         title: "Knight's Blog",
         href: "http://www.liaoqiqi.com/"
     },{
@@ -72,8 +75,5 @@ friends: [
     },{
         title: "百度惠",
         href: "http://hui.baidu.com"
-    },{
-        title: "百度",
-        href: "http://www.baidu.com"
     }
 ]
