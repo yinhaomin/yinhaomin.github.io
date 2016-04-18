@@ -5,6 +5,7 @@ comments: true
 author: "Yin Haomin"
 tags: 
   - Bean
+  - Config
   - Dynamic class
   - javassist
 ---
