@@ -242,3 +242,100 @@ public class ClassUtil {
         Long id = (Long) clazz.getMethod("getId").invoke(object);
 ```
 
+#### 最后，一种用CGLIB生成动态Class的方式，似乎是不能添加method，不好用
+
+```
+public class DynamicBean {
+
+    // 动态生成的类
+    public Object object = null;
+
+    // 存放属性名称以及属性的类型
+    public BeanMap beanMap = null;
+
+    public DynamicBean() {
+        super();
+    }
+
+    @SuppressWarnings("rawtypes")
+    public DynamicBean(Map propertyMap) {
+        this.object = generateBean(propertyMap);
+        this.beanMap = BeanMap.create(this.object);
+    }
+
+    /**
+     * 给bean属性赋值
+     * 
+     * @param property
+     *            属性名
+     * @param value
+     *            值
+     */
+    public void setValue(Object property, Object value, String clazzType) {
+        Object parsedValue = parseValue(value, clazzType);
+        beanMap.put(property, parsedValue);
+    }
+
+    /**
+     * 根究传入的基本数据类型解析数据
+     * 
+     * @param value
+     * @param clazzType
+     * @return
+     */
+    private Object parseValue(Object value, String clazzType) {
+        Object result = new Object();
+        if (clazzType.equals("java.lang.String")) {
+            result = String.valueOf(value);
+        } else if (clazzType.equals("java.lang.Long")) {
+            result = Long.parseLong(value.toString());
+        } else if (clazzType.equals("java.lang.Integer")) {
+            result = Integer.parseInt(value.toString());
+        } else {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("The input type: ").append(clazzType).append(
+                    " cannot be parsed. And the value is: " + value);
+            log.error(stringBuilder.toString());
+        }
+        return result;
+    }
+
+    /**
+     * 通过属性名得到属性值
+     * 
+     * @param property
+     *            属性名
+     * @return 值
+     */
+    public Object getValue(String property) {
+        return beanMap.get(property);
+    }
+
+    /**
+     * 得到该实体bean对象
+     * 
+     * @return
+     */
+    public Object getObject() {
+        return this.object;
+    }
+
+    /**
+     * 使用CGLIB的Generator生成一个bean.
+     * 
+     * @param propertyMap
+     * @return
+     */
+    @SuppressWarnings("rawtypes")
+    private Object generateBean(Map propertyMap) {
+        BeanGenerator generator = new BeanGenerator();
+        Set keySet = propertyMap.keySet();
+        for (Iterator iterator = keySet.iterator(); iterator.hasNext();) {
+            String key = (String) iterator.next();
+            generator.addProperty(key, (Class) propertyMap.get(key));
+        }
+        return generator.create();
+    }
+
+}
+```
