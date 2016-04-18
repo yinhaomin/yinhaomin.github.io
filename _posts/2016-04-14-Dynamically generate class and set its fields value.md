@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dynamically generate class and set value
+title: Dynamically generate class and set its fields value
 comments: true
 author: "Yin Haomin"
 tags: 
