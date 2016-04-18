@@ -4,9 +4,10 @@ title: Get a Spring bean from MySQL and dynamic change the bean when running
 author: "Yin Haomin"
 date: 2015-11-18 12:00:00
 tags:
-    - Get bean from Spring
-    - Spring
+    - Get bean from DB
     - Dynamic change bean
+    - Spring
+    - Config
     - Bean
 ---
 
