@@ -75,5 +75,8 @@ friends: [
     },{
         title: "百度惠",
         href: "http://hui.baidu.com"
+    },{
+        title: "我的Github",
+        href: "https://github.com/yinhaomin"
     }
 ]
