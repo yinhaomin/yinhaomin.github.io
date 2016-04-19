@@ -78,5 +78,8 @@ friends: [
     },{
         title: "我的Github",
         href: "https://github.com/yinhaomin"
+    },{
+        title: "Ray's Blog",
+        href: "http://www.predatorray.me/"
     }
 ]
