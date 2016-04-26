@@ -13,7 +13,7 @@ tags:
 
 如何在应用层实现transaction manager管理事务，举个例子我们需要在创建一个订单的时候，对于优惠券，库存进行操作。一旦出现异常就需要对整个操作进行回滚。
 
-以下实现了一个事务层的代码: https://github.com/yinhaomin/common-test/tree/master/common-test-base/src/main/java/com/baidu/common/test/base/transaction
+以下实现了一个业务层事务的代码: [业务层事务](https://github.com/yinhaomin/common-test/tree/master/common-test-base/src/main/java/com/baidu/common/test/base/transaction)
 
 以下为一个实现的实例:
 
