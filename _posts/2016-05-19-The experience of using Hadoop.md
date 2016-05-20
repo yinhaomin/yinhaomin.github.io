@@ -20,11 +20,15 @@ tags:
 
 ##### 解决方案
 
-设置Hadoop连接的Configuration属性disable对于FileSystem的缓存
+1. 设置Hadoop连接的Configuration属性disable对于FileSystem的缓存(这个方案试了下，似乎不行)
 
 ```
 configuration.setBoolean("fs.hdfs.impl.disable.cache", true);
 ```
+
+2. 每次用完FileSystem都不手动关闭，就好了
+
+
 
 
 
