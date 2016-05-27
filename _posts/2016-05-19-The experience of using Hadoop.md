@@ -38,6 +38,6 @@ NoClassDefFoundError comes when a class is not visible at run time but was at co
 
 You should already added hadoop-core.jar in your build path, so no compile error detected in your program. But you get the error when you run it, because hadoop-core is dependent on commons-logging.jar (as well as some other jars). You may need to add the jars under /lib to your build path.
 
-相关的链接[java.lang.NoClassDefFoundError in Hadoop Basics' MapReduce Program][http://stackoverflow.com/questions/13776795/java-lang-noclassdeffounderror-in-hadoop-basics-mapreduce-program]
+相关的链接[java.lang.NoClassDefFoundError in Hadoop Basics' MapReduce Program](http://stackoverflow.com/questions/13776795/java-lang-noclassdeffounderror-in-hadoop-basics-mapreduce-program)
 
 
