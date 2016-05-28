@@ -329,9 +329,33 @@ zadd article:id `timestamp` `commentId`
 
 由于按照article维度分表，根据article_id信息，可以在一张表中拿到所有的回复数据。可以按照用户的不同的需求和在Redis中类似的拼接出来不同的回复表现形式。
 
+2.3.2.5 规则配置逻辑
 
+为了实现上述的各种不同的规则配置，其逻辑如下图所示
 
+![gras](/images/postsImages/2-评论规则配置逻辑.png)
 
+2.3.2.6用户特征数据库
+
+可以记录数据的登入信息，30天内有几次登录，或者复杂一点，记录各种行为，为各种行为进行评分。
+
+### <a id="serch-service"></a>2.3.3 搜索服务
+
+为了满足APP管理员的管理Comment的需求，或者可能的APP用户的搜索需求，我们在将数据写入到MySQL的时候，使用CDP->Change-dumper->检索端的逻辑。
+
+## <a id="reference"></a>3 参考资料
+
+[1] 通用评论系统_潘静_0715
+
+[2] [支撑5亿用户、1.5亿活跃用户的Twitter最新架构详解及相关实现](http://blog.csdn.net/wyxhd2008/article/details/24870933)
+
+[3] [构建一个类timeline系统的架构设计](http://www.tuicool.com/articles/iymuamv)
+
+[4] [浅析评论系统设计](http://ratwu.com/2011/11/comment/)
+
+[5] 百度口碑的设计
+
+[6] [分布式 数据库表 sharding 综述](http://www.liaoqiqi.com/post/250)
 
 
 
