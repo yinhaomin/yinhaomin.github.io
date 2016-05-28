@@ -8,7 +8,7 @@ keywords: 检索系统,设计,Search System Design by ES and Redis
 
 占坑
 
-需求
+## 1. 需求
 
 1. 在繁多的信息中，找到真正需要的信息
 
@@ -18,10 +18,21 @@ keywords: 检索系统,设计,Search System Design by ES and Redis
 
 4. 支持大量的查询 
 
-解决方案
+## 2. 解决方案
 在使用like时，一般都用不到索引，除非使用前缀匹配，才能用得上索引。但普通的需求并非前缀匹配。
 比如like ‘%化痰冲剂%’就不能把”化痰止咳冲剂“搜索出来。但是普通的用户，需求就是这样
 数据库匹配某个关键字的记录可能有好几千，但数据库往往返回用户一些不关心的记录
+
+|	需求	|	Mysql	|	ES/Redis/Rank server	|
+|	:-------	|	:-------	|	:-------	|
+|	精确	|	like的不能做到完全的模糊匹配	|	ElasticSearch可以使用ik实现中文分词	|
+|	排序	|	like无法根据匹配度进行排序	|	ElasticSearch可以被干预使用一些方式排序，也可以使用专门的Rank server排序	|
+|	速度	|	使用like搜索效率太低，一般用不到索引	|	使用ElasticSearch 实现检索，高性能的key-value数据库实现数据的读取	|
+|	抗压	|	其读的抗压参数，没有去查。但是速度很明显不一样，因为Mysql基于文件系统，而Redis在内存中存储数据。	|	ElasticSearch 实现检索，高性能的key-value数据库Redis实现数据的读取,实现了数据的读写分离	|
+
+### 2.1 整体的架构
+
+![gras](/images/postsImages/3-检索系统设计.png)
 
 ElasticSearch
 是一个基于Lucene的搜索服务器
@@ -77,4 +88,24 @@ https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html
                 .addField(RankConstants.FIELDS.UPDATETIME)
                 .addField(RankConstants.FIELDS.PUBLISH_TIME)
                 .setExplain(true).execute().actionGet();
+```
+
+Rank server-提供数据的简单Rank功能
+
+```
+public int compareToBig(ItemRankBO o) {
+        if (rank > o.rank) {
+            return 1;
+        }
+        if (rank < o.rank) {
+            return -1;
+        }
+        if (publishtime > o.publishtime) {
+            return 1;
+        }
+        if (publishtime < o.publishtime) {
+            return -1;
+        }
+        return 0;
+    }
 ```
