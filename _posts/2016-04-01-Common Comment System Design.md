@@ -266,6 +266,76 @@ zadd article:id `timestamp` `commentId`
 
 以上显示支持用户配置策略
 
+2.3.2.2 个人中心数据读取
+
+我的评论数据以每个user为维度，记录其回复的数据的 commentId
+
+| |Key|
+|:-------|:-------|
+|我的回复|zset	comment:userId|
+
+分别显示我的回复和别人对我的回复
+
+数据写入
+
+| |key|data|
+|:-------|:-------|:-------|
+|回复数据zset|comment:userId|`timestamp` `commentId`|
+
+数据读取
+
+| |Comment|
+|:-------|:-------|
+|我的回复 zset|ZREVRANGE comment:userId 0 19|
+
+根据获取到的id list，batch获取到相应的comment
+
+支持在我的回复中显示被回复的信息
+
+数据写入
+
+| |key|data|
+|:-------|:-------|:-------|
+|回复数据zset|comment:userId|`timestamp` `commentId`|
+|回复我的数据|zset:comment:userId:commentId|`timestamp` `commentId`|
+|回复我的数据|comment:userId:comtId:unread|未读id list|
+
+回复我的数据zset包含我在我的评论下面对别人的回复
+
+数据读取
+
+| |Comment|
+|:-------|:-------|
+|我的回复 zset|ZREVRANGE comment:userId 0 19|
+|回复我的数据zset|ZREVRANGE comment:userId:commentId 0 19|
+
+当数据读取出来后，立即将读取出id从未读list删除掉。
+
+2.3.2.3 个人中心未读数据的提醒
+
+使用Comet框架，记录用户未读数据的数量unread:userId，未读数量有变化时，对用户进行提醒。
+
+2.3.2.4 MySQL数据读取
+
+如何获取个人页面的comment
+
+由于user是分库存储的，那么拿到一个user的时候，根据其user_id 在user_comment表获取其所有的comment_id 和article_id信息。
+
+获取个人被回复的数据
+
+根据user_reply表，拿到reply的信息。可以按照用户的不同的需求和在Redis中类似的拼接出来不同的回复表现形式。
+
+如何获取文章的comment
+
+由于按照article维度分表，根据article_id信息，可以在一张表中拿到所有的回复数据。可以按照用户的不同的需求和在Redis中类似的拼接出来不同的回复表现形式。
+
+
+
+
+
+
+
+
 
 
 
