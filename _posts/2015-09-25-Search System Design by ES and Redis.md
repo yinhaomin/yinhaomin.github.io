@@ -32,6 +32,8 @@ keywords: 检索系统,设计,Search System Design by ES and Redis
 
 ![gras](/images/postsImages/3-检索系统设计.png)
 
+### 2.2 详细解决方案
+
 ElasticSearch
 是一个基于Lucene的搜索服务器
 可以人工干预使用其他方式排序
