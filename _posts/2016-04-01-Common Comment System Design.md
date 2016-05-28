@@ -22,7 +22,9 @@ keywords: Comment,评论系统,系统设计
 |效率要求|说明|
 |:-------|:-------|
 |数据写入|支持大并发的写入，峰值500条/s的数据写入。一日最大支持约4千万条数据写入请求。|
-|数据读取|支持大并发的读取，峰值2000qps，接口能够在500ms内返回。写入数据后，处理并返回展现在页面上，能够在500ms内完成。一日支持最大约1.7亿次数据的读取请求。|
+|数据读取|支持大并发的读取，峰值2000qps，接口能够在500ms内返回。
+写入数据后，处理并返回展现在页面上，能够在500ms内完成。
+一日支持最大约1.7亿次数据的读取请求。|
 
 
 #### <a id="design-aim-core-basic"></a>1.2.2 业务的基本功能要求
@@ -36,7 +38,117 @@ keywords: Comment,评论系统,系统设计
 
 ## <a id="design-thoughts"></a>2 设计思路
 
-### <a id="related-service"></a>2.4 问题和思路
+### <a id="related-service"></a>2.1 问题和思路
+
+采用服务化的思想，考虑以下的问题：
+服务的高可用性：
+将试着将各个服务进行服务化，使用navi-rpc框架和zookeeper实现服务的高可用性。
+各个服务方将自己的服务注册到zookeeper上，基于注册中心目录服务，使服务消费方能动态的查找服务提供方，使地址透明，集群整体保证高可用性。
+
+服务的效率：
+使用多个Redis集群和一致性哈希算法实现缓存的高可用性，将数据全部写入到Redis中去。
+
+服务的能力：
+对数据库分库分表，保证数据库足够的容纳能力
+
+#### <a id="related-db-table"></a>2.2 相关的DB table
+
+comment表，记录所有的评论和评论的回复信息
+|Name|Comment|
+|:-------|:-------|
+|id|PK|
+|appid|使用方系统分发id|
+|user_id|用户Id|
+|user_name|用户名|
+|portrait|头像|
+|user_ip|用户IP|
+|article_id|文章ID|
+|article_type|文章类型|
+|layer|楼层id|
+|level|星级|
+|parent_id|父评论id|
+|content|内容|
+|ctime|用户创建时间|
+|tags|标签|
+|deleted|是否被删除|
+|comment_type|评论的类型1-comment,2-reply, 3-@|
+|target_user_id|被评论的用户的id|
+|target_user_name|被评论的用户的name|
+|target_type|被评论的类型|
+|target_id|被评论的id|
+|reserved1|保留字段|
+|reserved2|保留字段|
+|reserved3|保留字段|
+|addtime|添加时间|
+|upddatetime|更新时间|
+
+user表，记录user的信息
+|Name|Comment|
+|:-------|:-------|
+|id|PK|
+|appid|使用方系统分发id|
+|user_id|用户Id|
+|user_name|用户名|
+|portrait|头像|
+|mobile_no|手机号|
+|email|邮箱|
+|last_login_time|最后一次登录时间|
+|user_status|用户状态|
+|frozen_time|冻结时间|
+|deleted|是否删除|
+|addtime|新增时间|
+|updatetime|更新时间|
+
+user_comment表，记录用户和回复的映射
+|Name|Comment|
+|:-------|:-------|
+|id|PK|
+|appid|使用方系统分发id|
+|user_id|用户Id|
+|article_id|文章的id|
+|replier_id|回复者的id|
+|comment_id|相关的comment的id|
+|addtime|新增时间|
+|updatetime|更新时间|
+
+user_reply表，记录回复者，comment的reply与user的关系
+|Name|Comment|
+|:-------|:-------|
+|id|PK|
+|appid|使用方系统分发id|
+|user_id|用户Id|
+|article_id|文章的id|
+|replier_id|回复者的id|
+|addtime|新增时间|
+|updatetime|更新时间|
+
+app_info表记录各个产品线的信息
+|Name|Comment|
+|:-------|:-------|
+|id|PK|
+|name|app的名称|
+|company|app所属公司|
+|address|地址|
+|type|类型|
+|description|详细的描述|
+|contact|联系人名|
+|phone|电话|
+|addtime|新增时间|
+|updatetime|更新时间|
+
+
+filter_word表，记录过滤词
+|Name|Comment|
+|:-------|:-------|
+|id|PK|
+|app_id|app的id|
+|word|封禁的词|
+|word_type|词的类型|
+|filter_reason|封禁原因|
+|filter_time|封禁的时间|
+|addtime|新增时间|
+|updatetime|更新时间|
+
 
 #### <a id="related-service"></a>2.4.1 数据写入服务
 
