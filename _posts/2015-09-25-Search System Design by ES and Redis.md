@@ -6,10 +6,16 @@ author: "Yin Haomin"
 keywords: 检索系统,设计,Search System Design by ES and Redis
 ---
 
+占坑
+
 需求
+
 1. 在繁多的信息中，找到真正需要的信息
+
 2. 支持花样查询
+
 3. 速度要快
+
 4. 支持大量的查询 
 
 解决方案
