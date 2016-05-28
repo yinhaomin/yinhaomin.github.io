@@ -6,8 +6,6 @@ author: "Yin Haomin"
 keywords: 检索系统,设计,Search System Design by ES and Redis
 ---
 
-占坑
-
 ## 1. 需求
 
 1. 在繁多的信息中，找到真正需要的信息
