@@ -195,8 +195,76 @@ filter_word表，记录过滤词
  
 对于评论表comment，按照article_id分表，每个库8张表，总共64张表。每个表上限2000W的数据，大约可以存储12.8亿的数据量，将article_id 和user_id存储到其中。
 
+#### <a id="data-read-service"></a>2.3.2 数据读取服务
 
+2.3.2.1读取文章数据服务
 
+实现分页
+
+在Redis 中以zset的形式存储文章的id，以下为add命令: 
+
+zadd article:id `timestamp` `commentId`
+
+获取分页数据: ZREVRANGE article:id 0 19 获取前20条数据
+
+根据获取的数据的id集合，从Redis 中 batch 获取到文章评论的内容。
+
+支持直线式的回复(微博，人人，知乎)
+
+在article:id zset 中，顺序的存储所有的回复的id，获取数据时，按照存入的数据timestamp排序取出来。
+
+添加数据: 
+
+| |key|data|
+|:-------|:-------|:-------|
+|数据zset|article:id|`timestamp` `commentId`|
+
+读取数据:
+
+| |comment|
+|:-------|:-------|
+|数据zset|ZREVRANGE article:id 0 19|
+
+支持缩进式回复
+
+在article:id zset中，仅仅存储一级评论id 相关的数据，将其他的评论数据以一级评论id形成主键，存储其回复数据id的信息。
+
+添加评论: 
+
+| |key|data|
+|:-------|:-------|:-------|
+|一级回复数据zset|article:id|`timestamp` `commentId`|
+|非一级回复数据zset|article:id:parentCommetId|`timestamp` `commentId`|
+|非一级回复数据zset|article:id:layer:commentId|commentLayer(评论层级)|
+
+读取数据:
+
+| |comment|
+|:-------|:-------|
+|一级回复数据zset|ZREVRANGE article:id 0 19|
+|非一级回复数据zset|zrange article:id:parentCommetId 0 19|
+|非一级回复数据zset|get article:id:layer:commentId|
+
+支嵌套式的评论(网易)
+
+添加评论: 
+
+| |key|data|
+|:-------|:-------|:-------|
+|一级回复数据zset|article:id|`timestamp` `commentId`|
+|一级回复数据zset|article:id:upId:commentId|0 (其回复的评论id)|
+|非一级回复数据zset|article:id|`timestamp` `commentId`|
+|非一级回复数据zset|article:id:upId:commentId|id(其回复的评论id)|
+
+读取数据:
+
+| |comment|
+|:-------|:-------|
+|一级回复数据zset|ZREVRANGE article:id 0 19|
+|非一级回复数据zset|ZREVRANGE article:id 0 19|
+|非一级回复数据zset|get article:id:upId:commentId直至其upId 为0| 
+
+以上显示支持用户配置策略
 
 
 
