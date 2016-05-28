@@ -23,8 +23,8 @@ keywords: 检索系统,设计,Search System Design by ES and Redis
 比如like ‘%化痰冲剂%’就不能把”化痰止咳冲剂“搜索出来。但是普通的用户，需求就是这样
 数据库匹配某个关键字的记录可能有好几千，但数据库往往返回用户一些不关心的记录
 
-|	需求	|	Mysql	|	ES/Redis/Rank server	|
-|	:-------	|	:-------	|	:-------	|
+|需求|Mysql|ES/Redis/Rank server|
+|:-------|:-------|:-------|
 |	精确	|	like的不能做到完全的模糊匹配	|	ElasticSearch可以使用ik实现中文分词	|
 |	排序	|	like无法根据匹配度进行排序	|	ElasticSearch可以被干预使用一些方式排序，也可以使用专门的Rank server排序	|
 |	速度	|	使用like搜索效率太低，一般用不到索引	|	使用ElasticSearch 实现检索，高性能的key-value数据库实现数据的读取	|
