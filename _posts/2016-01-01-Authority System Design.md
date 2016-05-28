@@ -9,7 +9,95 @@ keywords: 权限,权限系统,系统设计,Authority System Design
 旨在设计一个权限管理系统,能够进行RBAC。
 需对后台所有功能模块及功能进行职责权限划分，通过权限管理可配置不同权限给到相应人员。
 
-建立了5张表: role, authority, role_authority, user, user_role.
+建立了5张表: role, authority, role_authority, admin_user, admin_user_role.
+
+role表
+
+```
+CREATE TABLE `role` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '角色id',
+	`name` VARCHAR(128) NOT NULL DEFAULT '' COMMENT '角色名称',
+	`addtime` DATETIME NOT NULL DEFAULT '2015-09-01 00:00:00' COMMENT '创建时间',
+	`updatetime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `uk_name` (`name`)
+)
+COMMENT='角色表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=60
+;
+```
+
+role_authority表
+
+```
+CREATE TABLE `role_authority` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`role_id` INT(32) NOT NULL DEFAULT '0' COMMENT '角色id',
+	`auth_id` INT(32) NOT NULL DEFAULT '0' COMMENT '权限id',
+	PRIMARY KEY (`id`),
+	INDEX `idx_role_id` (`role_id`),
+	INDEX `idx_auth_id` (`auth_id`)
+)
+COMMENT='角色权限分配表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=670
+;
+```
+
+authority表
+
+```
+CREATE TABLE `authority` (
+	`id` INT(32) UNSIGNED NOT NULL COMMENT '权限id',
+	`name` VARCHAR(128) NOT NULL DEFAULT '' COMMENT '权限展示名称',
+	`parent_id` INT(32) NOT NULL DEFAULT '0' COMMENT '父权限id',
+	`comment` VARCHAR(256) NOT NULL DEFAULT '' COMMENT '权限说明',
+	PRIMARY KEY (`id`)
+)
+COMMENT='权限表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+```
+
+admin_user表
+
+```
+CREATE TABLE `admin_user` (
+	`uc_id` INT(32) UNSIGNED NOT NULL COMMENT '用户的ucid',
+	`name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT '用户名',
+	`email` VARCHAR(256) NOT NULL DEFAULT '' COMMENT '用户email',
+	`addtime` DATETIME NOT NULL DEFAULT '2015-12-01 00:00:00' COMMENT '用户添加时间',
+	`updatetime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+	PRIMARY KEY (`uc_id`)
+)
+COMMENT='UC用户信息表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+```
+
+admin_user_role
+
+```
+CREATE TABLE `admin_user_role` (
+	`id` INT(32) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`role_id` INT(32) NOT NULL COMMENT '角色id',
+	`uc_id` INT(32) NOT NULL COMMENT '权限id',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `uk_role_uc_id` (`role_id`, `uc_id`)
+)
+COMMENT='uc用户角色关系表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=130
+;
+```
 
 状态验证
 
