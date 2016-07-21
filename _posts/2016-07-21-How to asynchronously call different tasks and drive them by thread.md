@@ -8,5 +8,5 @@ tags:
     - driver
 ---
 
-How to asynchronous call different tasks and drive them by thread
+How to asynchronously call different tasks and drive them by thread
 
