@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to asynchronous call different tasks and drive them by thread
+title: How to asynchronously call different tasks and drive them by thread
 comments: true
 author: "Yin Haomin"
 tags:
