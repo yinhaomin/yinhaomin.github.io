@@ -71,7 +71,7 @@ jhat -J-Xmx512m heap.bin
 
 ![gras](/img/Use_Jprofiler.png)
 
-2 使用Eclipse的Memory Analyzer插件，改小测试可用的Memory，得出PPM的hprof文件，然后使用Memory Analyzer分析。
+2 使用Eclipse的Memory Analyzer插件，改小测试可用的Memory，得出OOM的hprof文件，然后使用Memory Analyzer分析。
 
 
 
