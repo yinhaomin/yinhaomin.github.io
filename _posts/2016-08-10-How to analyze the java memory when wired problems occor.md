@@ -21,7 +21,7 @@ tags:
 
 除了查看日志以外，还可以查看Java的堆栈
 
-1 jps -lvm或者ps -ef | grep java  可以显示出程序，对应的进程号等
+1 jps -lvm或者ps -ef 可以显示出程序，对应的进程号等
 
 ```
 jps -lvm
