@@ -89,7 +89,15 @@ Passive模式在建立控制通道的时候和Standard模式类似，当客户�
 
 我们删除了该段代码，并使用FTPClient判断路径是否存在。并调整了FTP的设置，具体见这里[Reduce TIME_WAIT socket connections](http://www.linuxbrigade.com/reduce-time_wait-socket-connections/)
 
+#### 3. 当下载的文件很大的时候，没有root的权限不能设置FTP的下载文件大小限制
 
+##### 解决方案
+
+在Linux中启动Http服务器下载数据
+
+```
+python -m SimpleHTTPServer 8080
+```
 
 
 
