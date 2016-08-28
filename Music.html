@@ -1,0 +1,28 @@
+---
+layout: default
+description: "你已经来到了这个世界的边缘"
+header-img: "img/south-polar.jpg"
+permalink: /music.html
+---
+
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="site-heading" id="tag-heading">
+					<!--<h1>404</h1>
+					<span class="subheading">{{ page.description }}</span>-->
+					
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=3&id=9028192&auto=1&height=66"></iframe>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<script>
+	document.body.classList.add('page-fullscreen');
+</script>
