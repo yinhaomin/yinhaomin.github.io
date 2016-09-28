@@ -1,6 +1,6 @@
 ---
 layout: post
-title: About me
+title: About me and site is alive
 comments: false
 author: "Yin Haomin"
 date: 2009-01-01 12:00:00
@@ -12,7 +12,12 @@ tags:
     - Ecupl
 ---
 
-This will be a short introduce about the website owner and the words I want to say about the website alive. Currently I work as a software engineer in Baidu China. Focused on java develop and system design. Glad to share the solutions of problems and the thoughts of system designs with you guys. Let's forge to develiver a wholly new world and together persuit a better tomorrow.
+This will be a short introduce about the website owner and the words I want to say about the website alive. 
+
+Currently I work as a software engineer in Baidu China. Focused on java develop and system design. Glad to share the solutions of problems and the thoughts of system designs with you guys. 
+
+Let's forge to develiver a wholly new world and together persuit a better tomorrow.
+
 Finally the website is alive, be wild and be strong, across the wall, we can reach anywhere we want in the world. :)
 
 Hope the blogs are helpful to you. 
