@@ -87,5 +87,8 @@ friends: [
     },{
         title: "张旭的博客",
         href: "http://neoremind.com/"
+    },{
+        title: "JBlog",
+        href: "http://www.race604.com/"
     }
 ]
