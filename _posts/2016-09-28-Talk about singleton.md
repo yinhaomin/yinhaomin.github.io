@@ -61,5 +61,39 @@ xx.46.189.xx
 
 我们可以看到，这样就使用枚举实现了单例。
 
-未完待续。。。
+#### 使用Double checked locking实现单例
+
+以下的代码，及其每一行注释了为什么要这样实现的原因
+
+```
+public class Singleton{
+    // 使用volatile，可以保证对其读写是有序的，并且是按照地址写入的
+    // 否则，假如A线程在初始化singleton 的时候，当初始化未完成，而B线程前来读取，就会读取到错误的object.
+    private static volatile Singleton singleton = null;
+
+    private Singleton(){}
+
+    private Singleton(Context context){}
+
+    public Singleton getInstance(Context context){
+        // 可以有效的降低volatile的访问次数，因为volatile的访问开销较大
+        Singleton singletonInside = singleton;
+        if(singletonInside == null){
+            // 可以降低synchronized的访问次数，因为synchronized的访问开销很大
+            synchronized(Singleton.class){
+                 // 可能会被外部赋值
+                 singletonInside = singleton;
+                 if(singletonInside == null){
+                     singletonInside = new Singleton(context);
+                     singleton = singletonInside;
+                 }
+            }
+        }
+        return singletonInside;
+    }
+}
+```
+
+
+
 
