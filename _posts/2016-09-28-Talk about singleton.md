@@ -68,7 +68,7 @@ xx.46.189.xx
 ```
 public class Singleton{
     // 使用volatile，可以保证对其读写是有序的，并且是按照地址写入的
-    // 否则，假如A线程在初始化singleton 的时候，当初始化未完成，而B线程前来读取，就会读取到错误的object.
+    // 否则，不使用volatile的话，假如A线程在初始化singleton 的时候，当初始化未完成，而B线程前来读取，就会读取到错误的object.
     private static volatile Singleton singleton = null;
 
     private Singleton(){}
