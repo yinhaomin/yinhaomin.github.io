@@ -3,7 +3,9 @@ layout: post
 title: Common Comment System Design
 comments: true
 author: "Yin Haomin"
-keywords: Comment,评论系统,系统设计
+tags:
+    - System design
+    - Comment system
 ---
 
 完成了通用的comment服务，为了解决大规模并发和大规模数据量的评论的写入和读取，用户的读取服务。
