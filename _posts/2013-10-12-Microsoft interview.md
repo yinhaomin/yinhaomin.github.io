@@ -2,8 +2,11 @@
 layout: post
 title: Microsoft interview
 comments: true
-keywords: Microsoft,interview,微软面试
 author: "Yin Haomin"
+tags:
+    - Microsoft
+    - Interview
+    - Microsoft
 ---
 
 微软面试太早了，还安排在周六。早起挤地铁到徐家汇，还是妥妥的迟到了。在港汇大厦9楼，高大上啊。
