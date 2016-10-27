@@ -3,7 +3,9 @@ layout: post
 title: Where in slow query research and solution
 comments: true
 author: "Yin Haomin"
-keywords: Where in慢查询,解决方式
+tags:
+    - SQL query
+    - Where in query
 ---
 
 Queries that use WHERE ID IN (subquery) perform notoriously badly with mysql.
