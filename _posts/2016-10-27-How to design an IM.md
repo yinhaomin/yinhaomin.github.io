@@ -26,3 +26,13 @@ In the following, we will try to solve the questions above.
 
 Not only the user need to know if their friends are online or not, but also the server need to know it, so that to take some needed measures. So easily, we can let the client send a message regularly to the server, and client regularly request for their friends status from server.
 
+However, when the user number grows too large and the cocurrent number becomes so big, that the server can hardly bear the network traffic. There is several strategies to solve this problem.
+
+1. Lower the frequency of the status synchronizing, like every 5 or 10 minutes, to sync the status.
+2. Sync with pre actions, ex: If the client has taken some moves, like some clicks or refresh, only then, request will be sent.
+3. Rank the user, if the user is less active on the IM, or the other user talks so few to this one, the others's status change will not so frenquently updated to this user.
+
+##### 2. How to get the information informed to the server and to the user?
+
+
+
