@@ -12,7 +12,7 @@ In this blog, I want to explore how to design an IM, for designing and developin
 
 #### Here are some important questions to be answered
 
-1. How to know someone is online?
+1. How to know someone is online or offline?
 2. How to get the information informed to the server and to the user?
 3. How to make two online user send messages rapidly and messages are in order?
 4. How to transfer information in limited network environment, like 2G network?
@@ -22,4 +22,7 @@ In this blog, I want to explore how to design an IM, for designing and developin
 
 In the following, we will try to solve the questions above.
 
-##### 1. How to know someone is online?
+##### 1. How to know someone is online or offline?
+
+Not only the user need to know if their friends are online or not, but also the server need to know it, so that to take some needed measures. So easily, we can let the client send a message regularly to the server, and client regularly request for their friends status from server.
+
