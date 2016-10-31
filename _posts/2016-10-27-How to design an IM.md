@@ -38,6 +38,12 @@ We can use the websocket or the comet to make the client and server communicate.
 
 Firstly, for the web client.
 
+We can use the websocket to make the user and server to communicate, just like the codes, see in this link.
+
+Secondly, for the application client.
+
+
+
 
 
 
