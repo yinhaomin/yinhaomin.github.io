@@ -34,6 +34,8 @@ However, when the user number grows too large and the cocurrent number becomes s
 
 ##### 2. How to get the information informed to the server and to the user?
 
-We can use the websocket or the comet 
+We can use the websocket or the comet to make the client and server communicate. And there are two kind of clients, web client and application client. For different client, strategy may differs.
+
+
 
 
