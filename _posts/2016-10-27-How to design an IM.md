@@ -36,6 +36,8 @@ However, when the user number grows too large and the cocurrent number becomes s
 
 We can use the websocket or the comet to make the client and server communicate. And there are two kind of clients, web client and application client. For different client, strategy may differs.
 
+Firstly, for the web client.
+
 
 
 
