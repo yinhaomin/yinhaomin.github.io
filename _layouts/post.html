@@ -63,7 +63,7 @@ layout: default
                 <hr>
 
                 {% if site.duoshuo_share && site.duoshuo_username %}
-                <!-- 多说 Share start -->
+                <!-- 多说 Share start 
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
@@ -84,8 +84,8 @@ layout: default
                     </div>
                 <hr>
                 </div>
-                <!-- 多说 Share end-->
-                {% endif %}
+                <!-- 多说 Share end
+                {% endif %}-->
 
 
                 <ul class="pager">
@@ -109,7 +109,7 @@ layout: default
 
 
                 {% if site.duoshuo_username %}
-                <!-- 多说评论框 start -->
+                <!-- 多说评论框 start 
                 <div class="comment">
                     <div class="ds-thread"
                         data-thread-key="{{page.id}}"
@@ -117,7 +117,7 @@ layout: default
                         data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
                     </div>
                 </div>
-                <!-- 多说评论框 end -->
+                多说评论框 end
                 {% endif %}
 
                 {% if site.disqus_username %}
@@ -125,8 +125,8 @@ layout: default
                 <div class="comment">
                     <div id="disqus_thread" class="disqus-thread"></div>
                 </div>
-                <!-- disqus 评论框 end -->
-                {% endif %}
+                <!-- disqus 评论框 end 
+                {% endif %}-->
 
             </div>  
 
@@ -186,8 +186,8 @@ layout: default
 </article>
 
 
-{% if site.duoshuo_username %}
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<!-- {% if site.duoshuo_username %}
+多说公共JS代码 start (一个网页只需插入一次) 
 <script type="text/javascript">
     // dynamic User by Hux
     var _user = '{{site.duoshuo_username}}';
@@ -203,12 +203,31 @@ layout: default
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
 </script>
-<!-- 多说公共JS代码 end -->
-{% endif %}
+多说公共JS代码 end
+{% endif %} -->
 
 
-{% if site.disqus_username %}
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    {% if page.comments %}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'yinhaomin';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    {% endif %}
+
+
+<!-- {% if site.disqus_username %}
+disqus 公共JS代码 start (一个网页只需插入一次)
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "{{site.disqus_username}}";
@@ -221,7 +240,7 @@ layout: default
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<!-- disqus 公共JS代码 end -->
+disqus 公共JS代码 end -->
 {% endif %}
 
 
