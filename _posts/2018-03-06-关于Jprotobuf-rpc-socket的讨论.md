@@ -70,3 +70,14 @@ public class PmpServiceImpl implements PmpService {
 
 }
 ```
+
+实际上我们可以通过下面的代码，拿到被代理类，不知道开发者不做这件事情是否有其他考虑？<br>
+```
+public static Object getJdkDynamicProxyTargetObject(Object proxy) throws Exception {  
+    InvocationHandler invocationHandler = Proxy.getInvocationHandler(proxy);  
+    Object target = ((AdvisedSupport) ReflectionUtils.getFieldValue(invocationHandler,"advised")).getTargetSource().getTarget();  
+    return target;  
+}  
+
+```
+
