@@ -17,7 +17,7 @@ tags:
 百度的框架虽然开源了，但是市面上用的太少了，导致资料经验贴和教程等等都太少了，期望自此开始积累Jprotobuf-rpc-socket的使用经验和教程资料。这是我整理的[Jprotobuf-rpc-demo](https://github.com/yinhaomin/Jprotobuf-rpc-demo)，里面有使用的详细的说明。<br>
 
 #### 问题1：不能支持Proxy对象的服务发布
-当我们发布一个代理类的时候，在下面代码中会出现问题：<br>
+当我们发布一个代理类的时候，在下面代码中会出现问题。
 ```
 com.baidu.jprotobuf.pbrpc.server.RpcServiceRegistry
 
@@ -42,7 +42,7 @@ com.baidu.jprotobuf.pbrpc.server.RpcServiceRegistry
     }
 ```
 
-在运行的时候，下面的代码，拿到的类为"class com.sun.proxy.$Proxy81"。<br>
+在运行的时候，下面的代码，拿到的类为"class com.sun.proxy.$Proxy81"。
 ```
 Class<? extends Object> cls = target.getClass();
 ```
@@ -50,7 +50,7 @@ Class<? extends Object> cls = target.getClass();
 ```
 ProtobufRPCService protobufPRCService = method.getAnnotation(ProtobufRPCService.class);
 ```
-实际上我们的实现代码是这样的。<br>
+我们的实现代码是这样的。
 ```
 @Slf4j
 @RpcExporter(port = "1033", rpcServerOptionsBeanName = "rpcServerOptions")
@@ -71,7 +71,7 @@ public class PmpServiceImpl implements PmpService {
 }
 ```
 
-实际上我们可以通过下面的代码，拿到被代理类，不知道开发者不做这件事情是否有其他考虑？<br>
+实际上我们可以通过下面的代码，拿到被代理类，不知道开发者不做这件事情是否有其他考虑？
 ```
 public static Object getJdkDynamicProxyTargetObject(Object proxy) throws Exception {  
     InvocationHandler invocationHandler = Proxy.getInvocationHandler(proxy);  
