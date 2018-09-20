@@ -9,7 +9,7 @@ tags:
     - sober-minded
 ---
 
-For a long time, when I work hard and sleep less at night, and at the time when getting up next morning, it feels so damn tired, lassitude and sleepy. It is virtal for me as a engineer and manager to keep sober-minded and have a swift response.So I am thinking and seeking, why is this? And I found out, it is all about eating and sleeping.<br>
+For a long time, when I work hard and sleep less at night, and at the time when getting up next morning, it feels so damn tired, lassitude and sleepy. It is virtal for me, as an engineer and manager to keep sober-minded and have a swift response.So I am thinking and seeking, why is this? And I found out, it is all about eating and sleeping.<br>
 
 I tried this:<br>
 1.Eat less at supper even if I felt hungry.<br>
